@@ -1,0 +1,330 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-grid--stretch" style="background-color: white;">
+    <div class="k-container k-content-wrapper  k-grid k-grid--ver" id="k_content_wrapper">
+
+        <!-- begin:: Content -->
+        <div class="k-content	k-grid__item k-grid__item--fluid k-grid k-grid--hor DaiHoiform" id="k_content">
+
+            <!-- begin:: Content Body -->
+            <div class="content-body row">
+                <div class="content-body title-table col-12">
+                    <p class="content-title">
+                        <b>
+                            Báo cáo quản lý dòng tiền NĐT trong nước
+                        </b>
+                    </p>
+                </div>
+
+                <div class="partition-line">
+                </div>
+
+                <form method="POST" class="main-form form-inline shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="content-body contain-form-input col-12">
+                        <div class="form-input form-input-left col-6 ">
+                            <div class="form-group">
+                                <label class="label-input" for="daytrading">Tại ngày</label>
+                                <input class="txt-input input-right form-control" type="date" id="dtDayTrading" name="daytrading">
+                                <div align="left">
+
+                                    <input style="width:105px;" class="input-btn btn btn-search" id="btnSearch" type="submit" value="Xem báo cáo">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-input form-input-right col-6 ">
+                            <div class="form-group">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="table-responsive shadow-lg p-3 mb-5 bg-white rounded main-form" id="table-layout">
+
+                    <table>
+                        <tbody>
+                            <tr>
+
+                                <table class="table" id="tblInvoice">
+                                    <tbody>
+                                        <tr>
+                                            <td style="color: Black; width: 50%; font-weight: bold;"><a class="droptable image-link">&nbsp;<img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif" style="display: none;"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Số dư ngân hàng đầu kỳ</td>
+                                            <td style="color: Black ; width: 30%;">60,159,214,332</td>
+                                            <td style="color: Black ; width: 20%;">Ghi chú</td>
+
+                                        </tr>
+
+
+
+                                        <tr class="td"><td style="white-space: pre;  " class="paddingleft30"><a href="#" class="toggle image-link" data-target=".row2"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Hà Nội</td><td> 6,159,214,332</td><td></td></tr>
+                                        <tr class="row2" style="display: none;"><td class="paddingleft50">Ngân hàng A</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                                        <tr class="row2" style="display: none;"><td class="paddingleft50"><a>Ngân hàng B</a></td></td><td> 6,159,214,332</td><td></td>
+
+                                        <tr class="td"><td class="paddingleft30"><a href="#" class="toggle image-link" data-target=".row9"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;CN Hồ Chí Minh</td><td> 6,159,214,332</td><td></td></tr>
+
+                                        <tr class="row9" style="display: none;"><td class="paddingleft50"><a>Ngân hàng C</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                                        <tr class="row9" style="display: none;"><td class="paddingleft50"><a>Ngân hàng D</a></td></td><td> 6,159,214,332</td><td></td>
+
+                                        <tr class="td paddingleft30"><td class="paddingleft30"><a href="#" class="toggle image-link" data-target=".row10"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;CN Đà nẵng</td><td> 6,159,214,332</td><td></td></tr>
+
+                                        <tr class="row10" style="display: none;"><td class="paddingleft50">Ngân hàng E</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                                        <tr class="row10" style="display: none;">
+                                            <td class="paddingleft50"><a>Ngân hàng F</a></td></td>
+                                            <td> 6,159,214,332</td>
+                                            <td></td>
+
+
+                                        </tr>
+
+
+
+                                    </tbody>
+
+                                </table>
+                                <table class="table" id="tblInvoice1">
+                                    <tbody>
+                                        <tr>
+                                            <td style=" color: black; width: 50%;font-weight:bold;"><a class="droptable image-link">&nbsp;<img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif" style="display: none;"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Dòng tiền phát sinh</td>
+                                            <td style=" color: black; width: 30%;">60,159,214,332</td>
+                                            <td style=" color: black; width: 20%;"></td>
+
+                                        </tr>
+
+
+
+
+
+                                        <tr class="td">
+                                            <td class="paddingleft30"><a name="20" id="20"></a><a href="#" class="toggle image-link" data-target=".t2row"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;TTBT NĐT
+                                            <td> (6,159,214,332)</td>
+                                            <td></td>
+                                        <tr class="t2row " style="display: none;"><td class="paddingleft50"> Nhận TTBT</a></td><td> 6,159,214,332</td><td></td></tr>
+                                        <tr class="t2row " style="display: none;"><td class="paddingleft50">Giao TTBT</a></td><td> (6,159,214,332)</td><td></td></tr>
+                                        <tr class="t2row " style="display: none;"><td class="paddingleft50">Ký quỹ T1</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="20" id="20"></a><a href="#" class="toggle image-link" data-target=".t2row1"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Nộp, rút/chuyển khoản NĐT
+                                <td> (6,159,214,332)</td>
+                                <td></td>
+                            <tr class="t2row1 " style="display: none;"><td class="paddingleft50">Nộp/Chuyển PS về CS/Cổ tức</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row1 " style="display: none;"><td class="paddingleft50">Rút/Chuyển</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="10" id="10"></a><a href="#" class="toggle image-link" data-target=".t2row2"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Mar pro
+                                <td> (6,159,214,332)</td>
+                                <td></td>
+                            </tr>
+
+                            <tr class="t2row2 " style="display: none;"><td class="paddingleft50">Phát vay</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row2 " style="display: none;">
+                                <td class="paddingleft50"><a>Thu nợ</a></td></td>
+                                <td> (6,159,214,332)</td>
+                                <td></td>
+
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="20" id="20"></a><a href="#" class="toggle image-link" data-target=".t2row3"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Mar Mor theo nhóm
+                                <td> (6,159,214,332)</td>
+                                <td></td>
+                            <tr class="t2row3 " style="display: none;"><td class="paddingleft50">Phát vay</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row3 " style="display: none;"><td class="paddingleft50">Thu nợ</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="30" id="30"></a><a href="#" class="toggle image-link" data-target=".t2row4"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Ứng trước
+                                <td> (23,921,945,207)</td>
+                                <td></td>
+                            <tr class="t2row4 " style="display: none;"><td class="paddingleft50">Phát vay tại ngày</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row4 " style="display: none;"><td class="paddingleft50">Thu nợ tại ngày</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="60" id="60"></a><a href="#" class="toggle image-link" data-target=".t2row5"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Saving
+                                <td> (23,921,945,207)</td>
+                                <td></td>
+
+                            <tr class="t2row5 " style="display: none;"><td class="paddingleft50">KH tất toán trong ngày</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row5 " style="display: none;"><td class="paddingleft50">KH cho vay trong ngày</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+
+                            </tr>
+                            <tr class="td">
+                                <td class="paddingleft30"><a name="60" id="60"></a><a href="#" class="toggle image-link" data-target=".t2row6"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Thuế phí
+                                <td> 23,921,945,207</td>
+                                <td></td>
+                            </tr>
+                            <tr class="t2row6 parent  " style="display: none;"><td class="paddingleft50"><a href="#" class="toggle image-link" data-target=".t2row6_1"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Thu<td> 4,217,663,059</td><td></td>
+
+                            <tr class="t2row6_1 " style="display: none;"><td class="paddingleft70">Refund phí</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row6_1 " style="display: none;"><td class="paddingleft70">Khác</a></td><td> 6,159,214,332</td><td></td></tr>
+
+
+
+
+                            <tr class="t2row6 parent  " style="display: none;"><td class="paddingleft50"><a href="#" class="toggle image-link" data-target=".t2row6_2"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Chi<td> 23,921,945,207</td><td></td>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Phí Giao dịch</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Thuế thu nhập</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Thuế TNCN DTV</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Phí Lưu ký</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Phí SMS</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Phí tư vấn đầu tư</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row6_2 " style="display: none;"><td class="paddingleft70">Khác</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+
+                            <tr class="parent td">
+                                <td class="paddingleft30"><a name="60" id="60"></a><a href="#" class="toggle image-link" data-target=".t2row7"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Thu - Chi khác
+                                <td> 23,921,945,207</td>
+                                <td></td>
+                            </tr>
+
+
+                            <tr class="t2row7 parent " style="display: none;"><td class="paddingleft50"><a class="toggle image-link" data-target=".t2row7_1"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Thu khác<td> 4,217,663,059</td><td></td></tr>
+
+                            <tr class="t2row7_1 " style="display: none;"><td class="paddingleft70">Lãi NH chưa KC</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row7_1 " style="display: none;"><td class="paddingleft70">Vay NH</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row7_1 " style="display: none;"><td class="paddingleft70">Lãi trả TK NĐT</a></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t2row7_1 " style="display: none;"><td class="paddingleft70">Khác</a></td><td> 6,159,214,332</td><td></td></tr>
+
+
+
+                            <tr class="t2row7 parent " style="display: none;"><td class="paddingleft50"><a href="#" class="toggle image-link" data-target=".t2row7_2"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Chi khác<td> (23,921,945,207)</td><td></td></tr>
+
+                            <tr class="t2row7_2 " style="display: none;"><td class="paddingleft70">Phí NH chưa KC</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row7_2 " style="display: none;"><td class="paddingleft70">Phí vay NH</a></td><td> (6,159,214,332)</td><td></td></tr>
+                            <tr class="t2row7_2 " style="display: none;"><td class="paddingleft70">Khác</a></td><td> (6,159,214,332)</td><td></td></tr>
+
+                        </tbody>
+
+                    </table>
+
+
+                    <table class="table" id="tblInvoice2">
+                        <tbody>
+                            <tr>
+                                <td style="color: Black ; width: 50%;font-weight:bold;"><a class="droptable image-link">&nbsp;<img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif" style="display: none;"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Số dư ngân hàng cuối kỳ</td>
+                                <td style="color: Black ; width: 30%;">60,159,214,332</td>
+                                <td style="color: Black ; width: 20%;"></td>
+
+                            </tr>
+
+
+
+                            <tr class="td"><td class="paddingleft30"><a href="#" class="toggle image-link" data-target=".t1row2"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;Hà Nội</td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t1row2" style="display: none;"><td class="paddingleft50">Ngân hàng A</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t1row2" style="display: none;"><td class="paddingleft50"><a>Ngân hàng B</a></td></td><td> 6,159,214,332</td><td></td>
+
+                            <tr class="td"><td class="paddingleft30"><a href="#" class="toggle image-link" data-target=".t1row9"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;CN Hồ Chí Minh</td><td> 6,159,214,332</td><td></td></tr>
+
+                            <tr class="t1row9" style="display: none;"><td class="paddingleft50"><a>Ngân hàng C</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t1row9" style="display: none;"><td class="paddingleft50"><a>Ngân hàng D</a></td></td><td> 6,159,214,332</td><td></td>
+
+                            <tr class="td"><td class="paddingleft30"><a href="#" class="toggle image-link" data-target=".t1row10"><img border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/Plus.gif"><img style="display: none;" border="0" src="../TĂNG TRƯỞNG DOANH THU THEO LOẠI HÌNH KINH DOANH_files/102246.png"></a>&nbsp;CN Đà nẵng</td><td> 6,159,214,332</td><td></td></tr>
+
+                            <tr class="t1row10" style="display: none;"><td class="paddingleft50">Ngân hàng E</a></td></td><td> 6,159,214,332</td><td></td></tr>
+                            <tr class="t1row10" style="display: none;">
+                                <td class="paddingleft50"><a>Ngân hàng F</a></td></td>
+                                <td> 6,159,214,332</td>
+                                <td></td>
+
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- end:: Content Body -->
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+
+        $('.image-link').click(function () {
+            $(this).find('img').toggle();
+        });
+
+        const anchorTags = document.querySelectorAll(".droptable");
+
+        // Hàm xử lý sự kiện click
+        function handleClick(event) {
+
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ 'a'
+
+            // Tìm bảng gần nhất chứa thẻ 'a'
+            const closestTable = event.target.closest("table");
+
+            // Chọn tất cả các class có tên trong bảng tìm được
+            const parentRowss = closestTable.querySelectorAll('.td');
+
+            // Chọn tất cả các tr trong bảng tìm được
+            const allRows = closestTable.querySelectorAll("tr");
+            if (allRows[1].style.display === "") {
+
+
+                for (let i = 1; i < allRows.length; i++) {
+                    debugger;
+                    allRows[i].style.display = "none";
+                }
+            } else if (allRows[1].style.display === "none") {
+                debugger;
+                for (let i = 1; i < parentRowss.length; i++) {
+                    allRows[1].style.display = "";
+                    parentRowss[i].style.display = "";
+                }
+            }
+        }
+        anchorTags.forEach(anchor => {
+            anchor.addEventListener("click", handleClick);
+        });
+
+
+
+        $(".toggle").click(function (e) {
+            e.preventDefault();
+            var target = $(this).data("target");
+            $(target).toggle();
+
+            renOfHiddenParents("tblInvoice", "parent");
+            renOfHiddenParents("tblInvoice1", "parent");
+            renOfHiddenParents("tblInvoice2", "parent");
+
+        });
+        function renOfHiddenParents(tableId, Class) {
+            const table = document.getElementById(tableId);
+            const parentRows = table.querySelectorAll('.parent');
+
+            parentRows.forEach((row) => {
+
+                if (row.style.display === "none") {
+
+                    let nextElem = row.nextElementSibling;
+                    while (nextElem && !nextElem.classList.contains("parent")) {
+                        nextElem.style.display = "none";
+                        nextElem = nextElem.nextElementSibling;
+                    }
+                }
+            });
+        }
+
+    });
+</script>

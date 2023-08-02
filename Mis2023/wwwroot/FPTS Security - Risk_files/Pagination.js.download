@@ -1,0 +1,27 @@
+﻿var Pagination = function () {
+
+    this.init = function (functionLoadData) {
+
+        registerEvents(functionLoadData);
+
+    }
+
+    var registerEvents = function (functionLoadData) {
+        
+        $('body').on('click', '#pagination', function (e) {
+            e.preventDefault();
+            
+            function getEventTarget(e) {
+                e = e || window.event;
+                return e.target || e.srcElement;
+            }
+
+            var target = getEventTarget(e);
+            InvoiceConfig.pageIndex = Number(target.innerHTML);
+
+            functionLoadData();
+        });
+    }
+
+    
+}

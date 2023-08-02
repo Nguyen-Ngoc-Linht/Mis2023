@@ -1,0 +1,9 @@
+﻿Microsoft.AspNetCore.Http.Features
+
+Serilog
+Serilog.Sinks.File
+Serilog.Settings.Configuration
+
+
+
+Serilog.Exceptions

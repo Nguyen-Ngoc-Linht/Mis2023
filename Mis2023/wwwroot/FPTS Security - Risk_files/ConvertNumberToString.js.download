@@ -1,0 +1,153 @@
+﻿var ConvertNumberToString = function () {
+    //123 => một trăm hai ba đồng
+    //1,123,000=>một triệu một trăm hai ba nghìn đồng
+    //1,123,345,000 => một tỉ một trăm hai ba triệu ba trăm bốn lăm ngàn đồng
+    var mNumText = "không;một;hai;ba;bốn;năm;sáu;bảy;tám;chín".split(';');
+    //Viết hàm chuyển số hàng chục, giá trị truyền vào là số cần chuyển và một biến đọc phần lẻ hay không ví dụ 101 => một trăm lẻ một
+
+    var DocHangDonVi = function (so, daydu) {
+        var chuoi = "";
+        //Hàm để lấy số hàng chục ví dụ 21/10 = 2
+        var chuc = Math.floor(so / 10);
+        //Lấy số hàng đơn vị bằng phép chia 21 % 10 = 1
+        var donvi = so % 10;
+        //Nếu số hàng chục tồn tại tức >=20
+        if (chuc > 1) {
+            chuoi = " " + mNumText[chuc] + " mươi";
+            if (donvi == 1) {
+                chuoi += " mốt";
+            }
+        }
+        else if (chuc == 1) {//Số hàng chục từ 10-19
+            chuoi = " mười";
+            if (donvi == 1) {
+                chuoi += " một";
+            }
+        }
+        else if (daydu && donvi > 0) {//Nếu hàng đơn vị khác 0 và có các số hàng trăm ví dụ 101 => thì biến daydu = true => và sẽ đọc một trăm lẻ một
+            chuoi = " lẻ";
+        }
+        if (donvi == 5 && chuc >= 1) {//Nếu đơn vị là số 5 và có hàng chục thì chuỗi sẽ là " lăm" chứ không phải là " năm"
+            chuoi += " lăm";
+        }
+        else if (donvi > 1 || (donvi == 1 && chuc == 0)) {
+            chuoi += " " + mNumText[donvi];
+        }
+        return chuoi;
+    }
+
+    var DocHangChuc = function (so, daydu) {
+        var chuoi = "";
+        //Hàm để lấy số hàng chục ví dụ 21/10 = 2
+        var chuc = Math.floor(so / 10);
+        //Lấy số hàng đơn vị bằng phép chia 21 % 10 = 1
+        var donvi = so % 10;
+        //Nếu số hàng chục tồn tại tức >=20
+        if (chuc > 1) {
+            chuoi = " " + mNumText[chuc] + " mươi";
+            if (donvi == 1) {
+                chuoi += " mốt";
+            }
+        }
+        else if (chuc == 1) {//Số hàng chục từ 10-19
+            chuoi = " mười";
+            if (donvi == 1) {
+                chuoi += " một";
+            }
+        }
+        else if (daydu && donvi > 0) {//Nếu hàng đơn vị khác 0 và có các số hàng trăm ví dụ 101 => thì biến daydu = true => và sẽ đọc một trăm lẻ một
+            chuoi = " lẻ";
+        }
+        if (donvi == 5 && chuc >= 1) {//Nếu đơn vị là số 5 và có hàng chục thì chuỗi sẽ là " lăm" chứ không phải là " năm"
+            chuoi += " lăm";
+        }
+        else if (donvi > 1 || (donvi == 1 && chuc == 0)) {
+            chuoi += " " + mNumText[donvi];
+        }
+        return chuoi;
+    }
+
+    var DocHangTram = function (so, daydu) {
+        var chuoi = "";
+        //Lấy số hàng trăm ví du 434 / 100 = 4 (hàm Floor sẽ làm tròn số nguyên bé nhất)
+        var tram = Math.floor(so / 100);
+        //Lấy phần còn lại của hàng trăm 434 % 100 = 34 (dư 34)
+        so = so % 100;
+        if (daydu || tram > 0) {
+            chuoi = " " + mNumText[tram] + " trăm";
+            chuoi += DocHangChuc(so, true);
+        }
+        else {
+            chuoi = DocHangChuc(so, false);
+        }
+        return chuoi;
+    }
+
+    var DocHangTrieu = function (so, daydu) {
+        var chuoi = "";
+        //Lấy số hàng triệu
+        var trieu = Math.floor(so / 1000000);
+        //Lấy phần dư sau số hàng triệu ví dụ 2,123,000 => so = 123,000
+        so = so % 1000000;
+        if (trieu > 0) {
+            chuoi = DocHangTram(trieu, daydu) + " triệu";
+            daydu = true;
+        }
+        //Lấy số hàng nghìn
+        var nghin = Math.floor(so / 1000);
+        //Lấy phần dư sau số hàng nghin 
+        so = so % 1000;
+        if (nghin > 0) {
+            chuoi += DocHangTram(nghin, daydu) + " nghìn";
+            daydu = true;
+        }
+        if (so > 0) {
+            chuoi += DocHangTram(so, daydu);
+        }
+        return chuoi;
+    }
+
+    this.ChuyenSoSangChuoi = function (so) {
+        if (so == 0)
+            return mNumText[0];
+        var chuoi = "", hauto = "";
+        var ty;
+        do {
+            //Lấy số hàng tỷ
+            ty = Math.floor(so / 1000000000);
+            //Lấy phần dư sau số hàng tỷ
+            so = so % 1000000000;
+            if (ty > 0) {   
+                if (ty >= 1000)
+                {
+                    chuoi = DocHangTrieu(ty, false) + ' tỷ ' + DocHangTrieu(so, true) + ' đồng';
+                    chuoi = chuoi.trim();
+                    var chuoi5 = chuoi.charAt(0).toUpperCase() + chuoi.slice(1);
+                    return chuoi5;
+                }
+                else if (ty >= 100)
+                {
+                    chuoi = DocHangTram(ty, false) + ' tỷ ' + DocHangTrieu(so, true) + ' đồng';
+                    chuoi = chuoi.trim();
+                    var chuoi2 = chuoi.charAt(0).toUpperCase() + chuoi.slice(1);
+                    return chuoi2;
+                }
+                else
+                {
+                    chuoi = DocHangDonVi(ty, false) + ' tỷ ' + DocHangTrieu(so, true) + ' đồng';
+                    chuoi = chuoi.trim();
+                    var chuoi3 = chuoi.charAt(0).toUpperCase() + chuoi.slice(1);
+                    return chuoi3;
+                }                
+            }
+            else {
+                chuoi = DocHangTrieu(so, false) + hauto + chuoi;
+                chuoi = chuoi.trim();
+                var chuoi4 = chuoi.trim().charAt(0).toUpperCase() + chuoi.slice(1);
+                return chuoi4 + " đồng";
+            }
+            hauto = " tỷ";
+        } while (ty > 0);
+        return chuoi + " đồng";
+    }
+}

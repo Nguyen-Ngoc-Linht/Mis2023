@@ -1,0 +1,8 @@
+﻿x serilog
+x dapper
+x Microsoft.AspNetCore.Http.Features
+
+------------------
+
+ko ref gi het
+core projects phai ref o muc toi thieu co the

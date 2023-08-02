@@ -1,0 +1,14 @@
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\CommonLib.deps.json
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\CommonLib.dll
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\CommonLib.pdb
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\CoreLib.dll
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\CoreLib.pdb
+D:\EzSearch\trunk\CommonLib\bin\Release\netcoreapp2.2\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.csprojAssemblyReference.cache
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.csproj.CoreCompileInputs.cache
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.AssemblyInfoInputs.cache
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.AssemblyInfo.cs
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.csproj.CopyComplete
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.dll
+D:\EzSearch\trunk\CommonLib\obj\Release\netcoreapp2.2\CommonLib.pdb

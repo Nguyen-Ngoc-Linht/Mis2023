@@ -1,0 +1,492 @@
+﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+
+function addColumnSearch(table) {
+
+    //thêm ô input search cho từng cột của datatable
+    //table phải có thẻ tfoot giống hệt thead
+    $('tfoot th').each(function () {
+        var title = $(this).text();
+        if (title === "")
+            return;
+        if ($(this).data('search')==false)
+            return;
+        $(this).html(
+            '<input type="text" class="form-control" placeholder="Search ' + title + '" />');
+    });
+    // thêm sự kiện tìm kiếm
+    table.columns().every(function () {
+        var that = this;
+
+        $('input', this.footer()).on('keyup change',
+            function () {
+                if ($(this).data('search') == false)
+                    return;
+                if (that.search() !== this.value) {
+                    that.search(this.value)
+                        .draw();
+                }
+            });
+    });
+    //gán các ô search lên trên
+    $('tfoot').each(function () {
+        $(this).insertAfter($(this).siblings('thead'));
+    });
+}
+
+
+(function ($) {
+    if (!$)
+        throw new Error("JQuery is not imported");
+    window.postFormData = function (url, formData) {
+        return $.ajax(url,
+            {
+                method: "post",
+                processData: false,
+                contentType: false,
+                data: formData
+            }).done(function(res) {
+                return displayResponse(res);
+            }).promise();
+    }
+
+
+
+})(window.jQuery);
+
+//(function (swal) {
+//    if (!swal)
+//        throw new Error("SweetAlert2 is not imported");
+//    window.displayResponse = function (res) {
+
+//        if (!res.message || !res.code)
+//            throw new Error("Response is invalid");
+
+//        res.message = res.message.split('$').join("</br>");;
+//        if (res.code === "0")
+//            return swal.fire({
+//                title: "",
+//                text: res.message,
+//                type: "success",
+//                confirmButtonText: "OK"
+//            });
+//        else
+//            return swal.fire({
+//                title: "",
+//                html: res.message,
+//                type: "error",
+//                confirmButtonText: "OK"
+//            });
+//    }
+
+
+
+//})(window.Swal);
+
+function displayResponse(res) {
+
+
+    res.ErrorMessage = res.ErrorMessage.replace('$','</br>');
+    if (res.ErrorCode == "0")
+        return Swal.fire({
+            title: '',
+            text: res.ErrorMessage,
+            type: 'success',
+            confirmButtonText: 'OK'
+        });
+    else
+        return Swal.fire({
+            title: '',
+            html: res.ErrorMessage,
+            type: 'error',
+            confirmButtonText: 'OK'
+        });
+}
+function showError(error, callbackAfterClose) {
+    Swal.fire({
+        html: error,
+        type: 'error',
+        confirmButtonText: 'OK',
+        onAfterClose: callbackAfterClose
+    });
+}
+//
+//
+//
+//function postFormData(url, formData) {
+//    return new Promise(function (resolve, reject) {
+//        $.ajax(url,
+//                {
+//                    method: "post",
+//                    processData: false,
+//                    contentType: false,
+//                    data: formData
+//                })
+//            .done(function (res) {
+//                //hiển thị thông báo
+//                displayResponse(res).then(function() {
+//                    resolve(res);
+//                });
+//
+//            })
+//            .fail(function () {
+//                 displayResponse({
+//                    code: "-1",
+//                    message: "Không thể kết nối tới máy chủ"
+//                 }).then(function () {
+//                     reject();
+//                 })
+//            });
+//        
+//    });
+//    
+//}
+function getFormattedDate(date) {
+    //Định dạng dd/MM/YYYY
+    try {
+        var tem = date.split("T")[0]
+        var TemDate = tem.split("-")[2] + "/" + tem.split("-")[1] + "/" + tem.split("-")[0];
+        return TemDate;
+    }
+    catch{ }
+    return "01/01/0001";
+}
+function getFormattedDate1(date) {
+    //Định dạng YYYY/MM/dd
+    try {
+        if (date != '0001-01-01T00:00:00') {
+            var tem = date.split("T")[0]
+            var TemDate = tem.split("-")[0] + "-" + tem.split("-")[1] + "-" + tem.split("-")[2];
+            return TemDate;
+        }
+        else {
+            return '';
+        }
+       
+    }
+    catch{ return '';}
+}
+function getFormattedDate2(date) {
+    //Định dạng YYYY/MM/dd
+    try {
+        var tem = date.split("T")[0]
+        var TemDate = tem.split("/")[2] +"-" + tem.split("/")[1]+ "-" +tem.split("/")[0];
+        return TemDate;
+    }
+    catch{ }
+    return "01/01/0001";
+}
+
+//get year
+function getFormattedYear(date) {
+    //Định dạng YYYY
+    try {
+        if (date != '0001-01-01T00:00:00') {
+            var Year = date.split("/")[2];
+            return Year;
+        }
+        else {
+            return '';
+        }
+
+    }
+    catch{ return ''; }
+}
+//get month
+function getFormattedMonth(date) {
+    //Định dạng dd
+    try {
+        if (date != '0001-01-01T00:00:00') {
+            var Year = date.split("/")[1];
+            return Year;
+        }
+        else {
+            return '';
+        }
+
+    }
+    catch{ return ''; }
+}
+function SelectRadioButton(name, value) {
+
+    $("input[name='" + name + "'][value='" + value + "']").prop('checked', true);
+
+    return false; // Returning false would not submit the form
+
+}
+
+$(function() {
+    $(".toggle-password").click(function () {
+        $(this).toggleClass("fa-eye-slash");
+        const input = $($(this).attr("toggle"));
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+});
+
+/**
+ * Format số VD: 100000 sang 100,000
+ * @param {any} num
+ */
+const formatNumber = (num) => num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+const alignRightText = (data) => `<p class="text-right">${data == null ? '' : data}</p>`;
+const alignCenterText = (data) => `<p class="text-center">${data == null ? '' : data}</p>`;
+
+// format datetime to string => dd/MM/yyyy
+const formatDateToString = function (date) {
+    try {
+        if (date != '0001-01-01T00:00:00') {
+            var date = new Date(date);
+            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+        }
+        else {
+            return '';
+        }
+       
+    }
+    catch{
+        return '';
+    }
+    
+}
+
+// format InvoiceCode VD: InvoiceCode = 30 => 0000030
+var formatInvoiceCode = function (invoiceCode) {
+    var strInvoiceCode = String(invoiceCode);
+    if (strInvoiceCode == null || strInvoiceCode.length == 0)
+        return '';
+    var lengthInvoiceCode = strInvoiceCode.length;
+    var countLength = 7 - lengthInvoiceCode;
+    var strZero = '0';
+    var strZeros = '';
+    for (var i = 0; i < countLength; i++) {
+        strZeros += strZero;
+    }
+    return strZeros + invoiceCode;
+}
+
+
+var convertStatus = function (status) {
+    if (status == 0)
+        return 'Hóa đơn mới tạo';
+    if (status == 1)
+        return 'Hóa đơn chờ ký số';
+    if (status == 2)
+        return 'Hóa đơn đã ký số';
+    if (status == 3)
+        return 'Hóa đơn bị hủy';
+    if (status == 4)
+        return 'Hóa đơn thay thế';
+    if (status == 5)
+        return 'Hóa đơn bị thay thế';
+    if (status == 6)
+        return 'Hóa đơn chuyển đổi';
+}
+//Trạng thái Status Certificate
+function getStatusCertoString(intput) {
+    try {
+        var string;
+        if (intput == 1) {
+            string = 'Mới tạo';
+        }
+        if (intput == 2) {
+            string = 'Đã ký số';
+        }
+        if (intput == 3) {
+            string = 'Đã hủy';
+        }
+        if (intput == 4) {
+            string = 'Thay thế';
+        }
+        if (intput == 5) {
+            string = 'Bị thay thế';
+        }
+        return string;
+    } catch{
+        return '';
+    }
+
+}
+
+
+function DisplayMessageCer() {  
+    Swal.fire({
+        title: '<strong>Thông Báo</strong>',
+        //icon: 'info',
+        html:
+            'Để ký điện tử bạn cần cài đặt phần mềm ký điện tử ' +
+            //'<a href="http://invoice.fpts.com.vn/HostCertificate.rar" target="_self">tại đây</a> ' + ////sweetalert2.github.io
+            '<a href="http://internal.fpts.com.vn/Ezinvoice/DigitalSignSetup.msi" target="_self">tại đây</a> ' + ////sweetalert2.github.io
+            'hoặc truy cập ' + '<a href="">http://internal.fpts.com.vn/Ezinvoice</a></br>' +
+            '<a href="http://internal.fpts.com.vn/Ezinvoice/Instructions.docx" target="_self">(Hướng dẫn cài đặt)</a>',
+        showCloseButton: true,
+        //showCancelButton: false,
+        focusConfirm: false 
+    })
+}
+
+// Xóa dấu chấm trong value number
+function plainNumber(number) {
+    return number.split('.').join('');
+}
+
+// Thêm đấu chấm vào trong input type number vd: 1000 => 1.000 - Cách dùng: <input type="number" onkeyup="oneDot(this)" />
+function oneDot(input) {
+    var value = input.value,
+        value = plainNumber(value);
+
+    if (value.length > 3) {
+        value = value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    }
+
+    input.value = value.split(',').join('.');
+}
+
+//Trạng thái Status InvoiceSetup
+function getStatustoString(intput) { 
+    try {
+        var string;
+     
+        if (intput == 1) {         
+            string = 'Đang hoạt động';
+        }
+
+        if (intput == 0) {       
+            string = 'Đang chờ';
+        }
+
+        if (intput == 2) {         
+            string = 'Hủy một phần';
+        }
+
+        if (intput == 3) {
+            string = 'Đã dùng';
+        }
+
+        return string;
+    } catch{
+        return '';
+    }
+    
+}
+
+
+
+//Nguồn chứng từ
+function getSourceCertoString(intput) {
+    try {
+        var string;
+
+        if (intput == 0) {
+            string = 'Tạo mới';
+        }
+
+        if (intput == 1) {
+            string = 'EzHRM';
+        }
+
+        if (intput == 2) {
+            string = 'EzReport';
+        }
+
+        if (intput == 3) {
+            string = 'EzFAM';
+        }
+        if (intput == 4) {
+            string = 'EzInvoice';
+        }
+
+        return string;
+    } catch{
+        return '';
+    }
+
+}
+//Trạng thái User
+function UserStatus(status) {
+    try {
+        var string;
+
+        if (status) {
+            string = 'Đang hoạt động';
+            
+        }
+
+        if (!status) {
+            string = 'Đã bị xóa';
+        }
+
+        return string;
+    }
+    
+    catch {
+        return '';
+    }
+    
+    
+}
+
+//function deleteRow(tblId, given_value) {
+//    var td = $("#" + tblId + " td");
+//    $.each(td, function (i) {
+//        if ($(td[i]).text() === given_value) {
+//            $(td[i]).parent().remove();
+//        }
+//    });
+//}
+
+
+//Kiểm tra giao dịch có hợp lệ không
+function validDate(txtDay, txtMonth, txtYear) {
+    if (txtDay == null || txtDay < 1 || txtDay > 31) {
+        showError('@Resources.Text.ValidDay', () => $('#txtDay').focus());
+        return false;
+    }
+
+    if (txtMonth == null || txtMonth < 1 || txtMonth > 12) {
+        showError('@Resources.Text.ValidMonth', () => $('#txtMonth').focus());
+        return false;
+    }
+
+    if (txtYear == null || txtYear < 1900) {
+        showError('@Resources.Text.ValidYear', () => $('#txtYear').focus());
+        return false;
+    }
+
+    return true;
+}
+
+// kiểm tra xem chuỗi có rỗng hoặc chỉ có khoảng trắng hay không 
+function isEmptyOrSpaces(str) {
+    return str === null || str.match(/^ *$/) !== null;
+}
+
+//vùng miền
+function getRegionsToString(intput) {
+    try {
+        var string;
+
+        if (intput == 1) {
+            string = 'Hà Nội';
+        }
+
+        if (intput == 2) {
+            string = 'Tp.Hồ Chí Minh';
+        }
+
+        if (intput == 3) {
+            string = 'Đà Nẵng';
+        }
+
+        return string;
+    } catch{
+        return '';
+    }
+
+}

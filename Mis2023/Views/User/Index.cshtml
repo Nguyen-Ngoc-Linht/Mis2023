@@ -1,0 +1,355 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model Mis2023.Models.UserViewModel;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="loading"></div>
+
+<div class="container">
+    <div class="gsm-daihoi-info">
+        <div class="row d-flex justify-content-center">
+            <span class="col-12 text-center p-1 titlediv">Danh mục tin</span>
+        </div>
+
+    </div>
+    <div class="k-portlet__body">
+        <ul class="nav nav-pills nav-tabs-btn nav-pills-btn-success row" role="tablist">
+            <li class="nav-item col gsm-link-tab">
+                <a class="nav-link active show " data-toggle="tab" href="#k_tabs_1" role="tab" aria-selected="true">
+                    <span class="nav-link-title text-uppercase">Danh sách danh mục tin</span>
+                </a>
+            </li>
+            <li class="nav-item col gsm-link-tab">
+                <a class="nav-link" data-toggle="tab" href="#k_tabs_2" role="tab" aria-selected="false">
+                    <span class="nav-link-title text-uppercase">Tạo danh mục</span>
+                </a>
+            </li>
+        </ul>
+        <div class="line_top col-md-12">
+
+        </div>
+        <div class="tab-content">
+            @*Tab Danh Sách*@
+            <div class="tab-pane fade active show " id="k_tabs_1" role="tabpanel">
+                <div class="form-group row nopadding">
+                    <form id="CatalogListSearh" enctype="multipart/form-data" method="post" class="col-12 nopadding">
+                        <div class="form-group row nopadding">
+                            <div class="col-md-1" style="padding-left:0!important">
+                                <label class="col-form-label" id="lblcCatalog-Search" asp-for="User.Username">Tên Username</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="tCatalogNames-Search" asp-for="User.Username">
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-7 nopadding">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group row">
+                    <div class="row d-flex justify-content-center col-12">
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Search">
+                            Tìm kiếm
+                        </button>                       
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div id="m_table_2_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="col-sm-12 nopadding">
+                            <div>
+                                <table class="table  display cell-border row-border" id="listGrid"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Tab Nội dung*@
+            <div class="tab-pane fade boxshadow" id="k_tabs_2" role="tabpanel">
+                <div class="form-group row nopadding">
+                    <form id="CatalogForm" enctype="multipart/form-data" method="post" class="col-12 padt20">
+                        <input type="hidden" class="form-control" asp-for="User.Id" value="0" />
+                        <div class="col-md-12 d-inline-block">
+                            <div class="form-group row nopadding">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" id="lblCatalogName" asp-for="User.Username">Tên danh mục (*)</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="tCatalogName" asp-for="User.Username">
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                            </div>
+                        @*    <div class="form-group row nopadding">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" asp-for="cCatalog.Note">Mô tả</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="tNote" asp-for="cCatalog.Note">
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+                            </div>*@
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group row">
+                    <div class="row d-flex justify-content-center col-12 padb20">
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Insert">
+                            Thêm mới
+                        </button>
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Update" style="display:none;">
+                            Cập nhật
+                        </button>
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Reset">
+                            Làm mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+       
+     
+
+        $(document).ready(function () {
+            $("#tCatalogNames-Search").text("");          
+
+
+            let isSearch = false;
+            //Load data lên Grid
+            function loadGridData() {
+                //định dang cột để tạo bảng
+                var renderColumns = [
+                    {
+                        data: "ID",
+                        title: `<label class="k-checkbox k-checkbox--bold k-checkbox--brand">
+                                <input type="checkbox"><span></span>
+                                </label>`,
+                        render: function(data, type, row) {
+                            return `<label class="k-checkbox k-checkbox--bold k-checkbox--brand">
+                                    <input class="isDelete" data-ID=${row.ID} type="checkbox"><span></span>
+                                    </label>`;
+                        },
+                        "orderable": false,
+                    },
+                    {
+                        orderable: false,
+                        title: "Tên danh mục",
+                        data: "catalogName"
+                    },
+                    {
+                        orderable: false,
+                        title: "Mô tả",
+                        data: "note"
+                    },                   
+                    {
+                        title: "Hành động",
+                        data: "ID",
+                        render: function (data, type, row) {
+                            return `<div class="d-inline-flex w-100">
+                                    <a class='UpdateCatalog btn text-primary'
+                                     data-ID="${row.ID}">
+                                    <i class="fas fa-edit"></i>
+                                    <a class='DeleteCatalog btn text-primary'
+                                     data-ID="${row.ID}">
+                                    <i class="fas fa-delete"></i></div>`;
+                        },
+                        "orderable": false,
+                    },
+                ]
+
+                //dữ liệu tìm kiếm
+                var CatalogName = $("#tCatalogNames-Search").val();
+                if (CatalogName == null)
+                {
+                    CatalogName = '';
+                }
+                console.log(CatalogName);
+              
+
+                //thêm panel loading
+                $.get('@Url.Action("Search", "Catalogs")'+'?CatalogName=' + CatalogName)
+                    .done(function (res) {
+                        $('#loading').removeClass('loading');
+                        //tạo grid
+                        console.log(res);
+                        let ListCatalogTable = $('#listGrid').DataTable({
+                            dom: "lti<'d-flex justify-content-center'p>",
+                            destroy: true,
+                            data: res.listcatalogs,
+                            columns: renderColumns,
+                            searching: false,
+                            ordering: false,
+                            pageLength: 10,
+                            lengthChange: false,
+                        });
+                        // Load dữ liệu chi tiết danh mục lên form
+                        $('.UpdateCatalog').on('click',
+                            function() {
+                                //Chuyển Tab
+                                $('.nav-item a[href="#k_tabs_2"]').tab('show');
+
+                                let table = $('#listGrid').DataTable()
+                                let row = $(this).closest('tr');
+                                let rowData = table.row(row).data();
+                                var id = rowData.id;
+                                //Hiển thị ảnh loading lên
+                                $('#loading').addClass('loading');
+                                $.ajax({
+                                    url: '@Url.Action("GetDetail", "Catalogs")' + '?ID=' + id,
+                                    type: 'GET'
+                                }).done(function(data) {
+                                    console.log(data);
+                                    if (data.error) {
+                                        return;
+                                    }
+                                    //Đặt dữ liệu lên form
+                                    $("#cCatalog_ID").val(data.listcatalogs[0].id);
+                                    $("#tCatalogName").val(data.listcatalogs[0].catalogName);
+                                    $("#tNote").val(data.listcatalogs[0].note);                                   
+                                     //Xóa ảnh loading
+                                    $('#loading').removeClass('loading');
+                                    return;
+
+                                }).fail(function(error) {
+                                    alert('Cannot Load Data.');
+                                });
+
+
+                                $('#Insert').hide(); //Ẩn nút thêm mới
+                                $('#Update').show();  //Hiển thị nút cập nhật
+                                $('#loading').removeClass('loading');     //Xóa ảnh loading
+                            }); // End Edit
+
+                    
+                        $('.DeleteCatalog').on('click',
+                        function () { Swal.fire({
+                                title: 'Thông báo',
+                                text: 'Bạn có chắc chắn muốn xóa danh mục tin không?',
+                                type: 'warning',
+                                cancelButtonText: 'Hủy',
+                                showCancelButton: true,
+                                confirmButtonText: 'OK'
+                            }).then(result => {
+                                if (result.value) {
+                                    let table = $('#listGrid').DataTable()
+                                    let row = $(this).closest('tr');
+                                    let rowData = table.row(row).data();
+                                    var id = rowData.id;
+
+                                    $('#loading').addClass('loading');
+                                    $.ajax({
+                                        url: '@Url.Action("DeleteCatalogs", "Catalogs")' + '?ID=' + id,
+                                        type: 'POST'
+                                        }).done(function (data) {
+                                            if (data.error) { return; }   
+                                            resetForm(); //load lại form
+                                            loadGridData(); //Hiển thị danh sách danh mục tin
+                                        
+                                            $('#loading').removeClass('loading');
+                                            return;
+                                            }).fail(function (error) {
+                                                $('#loading').removeClass('loading');
+                                                alert('Cannot Load Data.');
+                                            });
+                                }
+                            })
+                        });
+                    })//fail
+                    .fail(function() {
+                        conssole.log('request error');
+                        $('#loading').removeClass('loading');
+                    });
+            }
+            //Hiển thị danh mục tin
+            loadGridData();
+
+            function resetForm() {
+                $('#CatalogForm').trigger("reset"); // reset gía trị của form
+                $('#Insert').show();  //Hiển thị nút thêm mới
+                $('#Update').hide();  // Ẩn nút cập nhật
+               
+            }
+
+            //Tìm kiếm gọi lại reload DATA Grid với tham số đã truyền vào (nếu có)
+            $('#Search').click(function () {
+                isSearch = true;
+                loadGridData();
+                isSearch = false;
+            });
+
+            //Nút làm mới form
+            $('#Reset').click(function () {
+                resetForm();
+            });
+            // Thêm mới danh mục tin
+            $('#Insert').click(function() {
+                let formData = new FormData($('form')[1]);               
+                  //Hiển thị ảnh loadding
+                $('#loading').addClass('loading');
+                $.ajax('@Url.Action("InsertCatalogs", "Catalogs")',
+                    {
+                        type: "post",
+                        processData: false,
+                        contentType: false,
+                        data: formData
+                    })
+                    .done(function (data) {                        
+                        //data.code : 0 - Không có lỗi trả về
+                        displayResponse(data);  // Hiện thị popup thông báo kết quả
+                        loadGridData();  // Load thông tin danh sách danh mục tin
+                        resetForm(); //Reset Form dữ liệu
+                    
+                    })
+                    .fail(function () {
+                          showError('Có lỗi xảy ra');
+                    });
+                  //Xóa ảnh loading
+                $('#loading').removeClass('loading');
+                $('.nav-item a[href="#k_tabs_1"]').tab('show');
+            }); 
+            
+            $('#Update').click(function() {
+                let formData = new FormData($('form')[1]);               
+                //Hiển thị ảnh loadding
+                $('#loading').addClass('loading');
+                $.ajax('@Url.Action("UpdateCatalogs", "Catalogs")',
+                    {
+                        type: "post",
+                        processData: false,
+                        contentType: false,
+                        data: formData
+                    })
+                    .done(function (data) {
+                        console.log(data);
+                        //data.code : 0 - Không có lỗi trả về
+                        displayResponse(data);  // Hiện thị popup thông báo kết quả
+                        loadGridData();  // Load thông tin danh sách danh mục tin
+                        resetForm(); //Reset Form dữ liệu
+                    
+                    })
+                    .fail(function () {
+                          showError('Có lỗi xảy ra');
+                    });
+                //Xóa ảnh loading
+                $('#loading').removeClass('loading');
+                $('.nav-item a[href="#k_tabs_1"]').tab('show');
+            }); 
+
+
+           
+        });//End
+    </script>
+}

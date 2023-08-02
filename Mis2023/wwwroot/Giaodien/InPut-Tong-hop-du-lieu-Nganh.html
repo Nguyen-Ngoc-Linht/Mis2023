@@ -1,0 +1,820 @@
+﻿<html>
+<!-- begin::Head -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="EzSearch Internal">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="./wwwroot/favicon.png">
+    <!--begin::Web font -->
+    <!--end::Web font -->
+    <!--begin::Page Vendors Styles -->
+    <!--data table style sheet -->
+    <link href="./wwwroot//assets/vendors/custom/datatables/datatables.bundle.js" rel="stylesheet" type="text/css">
+
+    <link href="./wwwroot/assets/demo/demo3/base/style.bundle.css" rel="stylesheet" type="text/css">
+    <!--end::Page Vendors Styles -->
+    <!--begin:: Global Mandatory Vendors -->
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin:: Global Optional Vendors -->
+    <script src="./wwwroot/assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/toastr/build/toastr.min.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/sweetalert2/dist/sweetalert2.js" type="text/javascript"></script>
+    <script src="./wwwroot/js/jquery-ajax-native.js"></script>
+    <script src="./wwwroot/lib/filesaver/FileSaver.min.js"></script>
+
+
+    <link href="./wwwroot/assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./wwwroot/css/Customer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/site.css">
+    <link href="./wwwroot/assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css">
+
+    <!--end:: Global Optional Vendors -->
+
+    <title>ManagerEvent - EzSearch Internal</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "sans-serif";
+        }
+    </style>
+</head>
+
+<!-- end::Head -->
+<!-- begin::Body -->
+
+<body class="k-page--loading-enabled k-page--loading k-page--fixed k-header--fixed k-header--minimize-menu k-header-mobile--fixed">
+
+    <!-- begin::Page loader -->
+    <!-- end::Page Loader -->
+    <!-- begin:: Page -->
+    <!-- begin:: Header -->
+    <div id="k_header" class="k-header k-grid__item  k-header--fixed " data-kheader-minimize="on">
+        <div class="k-header__top">
+            <div class="k-container">
+                <!-- begin:: Brand -->
+                <div class="col-12" style="display:flex;">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-6" style="display:flex;">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4">
+                            <span style="color: #fff;text-transform: uppercase;font-size: 16px;">acb</span>
+                            <a href="" title="Logout" class="fpts-btn-signout" style="color: #fff;padding-left: 15px;">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="k-header__brand   k-grid__item" id="k_header_brand">
+                    <div class="k-header__brand-logo">
+                        <a>
+                            <img alt="Logo" src="/assets/media/logos/FPTS.png" class="k-header__brand-logo-sticky">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- end:: Brand -->
+                <!-- end:: Header Topbar -->
+            </div>
+        </div>
+        <div class="k-header__bottom">
+            <div class="k-container">
+
+                <!-- begin: Header Menu -->
+                <button class="k-header-menu-wrapper-close" id="k_header_menu_mobile_close_btn">
+                    <i class="la la-close"></i>
+                </button>
+                <div class="k-header-menu-wrapper container" id="k_header_menu_wrapper">
+                    <div id="k_header_menu" class="k-header-menu k-header-menu-mobile ">
+                        <ul class="k-menu__nav ">
+                            <li class="k-menu__item  ">
+                                <a class="k-menu__link " href="./InPut-Home.html">
+                                    <span class="k-menu__link-text">HOME</span><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" aria-haspopup="true">
+                                <a class="k-menu__link k-menu__toggle">
+                                    <span class="k-menu__link-text">
+                                        CƠ
+                                        BẢN
+                                    </span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+                                    <ul class="k-menu__subnav">
+
+                                        <li class="k-menu__item  k-menu__item--submenu" data-kmenu-submenu-toggle="hover" aria-haspopup="true">
+                                            <a class="k-menu__link k-menu__toggle">
+                                                <span class="k-menu__link-text">Dữ liệu báo cáo</span><i class="k-menu__hor-arrow la la-angle-right"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--right">
+                                                <ul class="k-menu__subnav">
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Bao-cao-kinh-doanh.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Import báo cáo
+                                                                kinh doanh
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Bao-cao-tai-chinh.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Import báo cáo tài
+                                                                chính
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Bao-cao-Phan-tich.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Import báo cáo
+                                                                phân tích
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Du-lieu-S&P500.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Import dữ liệu
+                                                                khác
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./Input-Tong-hop-dulieu.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Tổng hợp dữ
+                                                                liệu
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-Tong-hop-du-lieu-Nganh.html">
+                                                            <span class="k-menu__link-text">
+                                                                Tổng hợp dữ liệu Ngành
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a href="./InPut-Du-lieu-vi-mo.html" class="k-menu__link ">
+                                                <span class="k-menu__link-text">Dữ liệu vĩ mô</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a href="./InPut-Du-lieu-khac.html" class="k-menu__link ">
+                                                <span class="k-menu__link-text">Dữ liệu khác</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" aria-haspopup="true">
+                                <a class="k-menu__link k-menu__toggle">
+                                    <span class="k-menu__link-text">
+                                        KỸ
+                                        THUẬT
+                                    </span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--submenu" data-kmenu-submenu-toggle="hover" aria-haspopup="true">
+                                            <a class="k-menu__link k-menu__toggle">
+                                                <span class="k-menu__link-text">Dữ liệu giao dịch</span><i class="k-menu__hor-arrow la la-angle-right"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--right">
+                                                <ul class="k-menu__subnav">
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Du-lieu-gia.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Dữ liệu
+                                                                giá
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Du-lieu-Infobank.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Dữ liệu
+                                                                Infobank
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a href="./InPut-Du-lieu-bao-cao.html" class="k-menu__link ">
+                                                <span class="k-menu__link-text">Dữ liệu báo cáo</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a href="./InPut-Du-lieu-khac-Ky-Thuat.html" class="k-menu__link ">
+                                                <span class="k-menu__link-text">Dữ liệu khác</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" aria-haspopup="true">
+                                <a class="k-menu__link k-menu__toggle">
+                                    <span class="k-menu__link-text">
+                                        DỮ
+                                        LIỆU
+                                    </span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--submenu" data-kmenu-submenu-toggle="hover" aria-haspopup="true">
+                                            <a class="k-menu__link k-menu__toggle">
+                                                <span class="k-menu__link-text">Dữ liệu OS</span><i class="k-menu__hor-arrow la la-angle-right"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--right">
+                                                <ul class="k-menu__subnav">
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-Tong-hop-su-kien.html">
+                                                            <span class="k-menu__link-text">
+                                                                Tổng hợp sự
+                                                                kiện
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-TrackEvent.html">
+                                                            <span class="k-menu__link-text">
+                                                                Track
+                                                                Event
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-TrackNYBS.html">
+                                                            <span class="k-menu__link-text">
+                                                                Track
+                                                                NYBS
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-MapNYBS.html">
+                                                            <span class="k-menu__link-text">
+                                                                Map
+                                                                NYBS
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a class="k-menu__link " href="./InPut-Manager-Event.html">
+                                                            <span class="k-menu__link-text">
+                                                                Manage
+                                                                Event
+                                                            </span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!--<li class="k-menu__item " aria-haspopup="true"><a class="k-menu__link " href="./InPut-Lich-su-kien.html"><span
+                        class="k-menu__link-text">Lịch sự kiện</span></a></li>-->
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./Input-Luu-tru.html">
+                                                <span class="k-menu__link-text">Lưu trữ</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Cap-nhat-tien-do.html">
+                                                <span class="k-menu__link-text">Cập nhật tiến độ</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" aria-haspopup="true">
+                                <a class="k-menu__link k-menu__toggle">
+                                    <span class="k-menu__link-text">THÔNG TIN DOANH NGHIỆP</span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Bo-may-lanh-dao.html">
+                                                <span class="k-menu__link-text">Bộ máy lãnh đạo</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-So-do-bo-may.html">
+                                                <span class="k-menu__link-text">Sơ đồ bộ máy quản lý</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Dien-giai-bo-may-quan-ly.html">
+                                                <span class="k-menu__link-text">Diễn giải sơ đồ bộ máy quản lý</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Dien-giai-co-cau-to-chuc.html">
+                                                <span class="k-menu__link-text">Diễn giải sơ đồ cơ cấu tổ chức</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Co-cau-co-dong.html">
+                                                <span class="k-menu__link-text">Cơ cấu cổ đông</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Chi-nhanh-cong-ty.html">
+                                                <span class="k-menu__link-text">Chi nhánh công ty</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Doi-thoai-doanh-nghiep.html">
+                                                <span class="k-menu__link-text">Đối thoại doanh nghiệp</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Duyet-du-lieu-Template.html">
+                                                <span class="k-menu__link-text">Duyệt dữ liệu Template</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item  k-menu__item--submenu" data-kmenu-submenu-toggle="hover" aria-haspopup="true">
+                                            <a class="k-menu__link k-menu__toggle">
+                                                <span class="k-menu__link-text">Dữ liệu template</span><i class="k-menu__hor-arrow la la-angle-right"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--right k-menu__submenu--auto">
+                                                <ul class="k-menu__subnav">
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Nganh-doanh-nghiep.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Gán ngành --&gt;
+                                                                doanh nghiệp
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Cac-moc-lich-su.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Các mốc lịch
+                                                                sử
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-cty-con-cty-lienket.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Góp vốn công ty
+                                                                con/liên kết
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Linh-vuc-SXKD-Chinh.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">
+                                                                Lĩnh vực Sxkd
+                                                                chính
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="k-menu__item  k-menu__item--submenu" data-kmenu-submenu-toggle="hover" aria-haspopup="true">
+                                            <a class="k-menu__link k-menu__toggle">
+                                                <span class="k-menu__link-text">Dữ liệu Free-Text</span><i class="k-menu__hor-arrow la la-angle-right"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--right">
+                                                <ul class="k-menu__subnav">
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./InPut-Nhap-du-lieu-FreeText.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">Nhập dữ liệu Free-Text</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="k-menu__item " aria-haspopup="true">
+                                                        <a href="./Input-Duyet-noi-dung-FreeText.html" class="k-menu__link ">
+                                                            <span class="k-menu__link-text">Duyệt nội dung Free-Text</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a href="./InPut-Cac-to-chuc-lien-quan.html" class="k-menu__link ">
+                                                <span class="k-menu__link-text">Các tổ chức liên quan</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Ho-so-doanh-nghiep.html">
+                                                <span class="k-menu__link-text">Nhập liệu hồ sơ doanh nghiệp</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Doanh-nghiep-nghanh.html">
+                                                <span class="k-menu__link-text">Gán doanh nghiệp --> ngành</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Gan-link-doanh-nghiep.html">
+                                                <span class="k-menu__link-text">Gán link doanh nghiệp</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Quan-ly-nien-do-dac-biet.html">
+                                                <span class="k-menu__link-text">Quản lý niên độ đặc biệt</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" aria-haspopup="true">
+                                <a class="k-menu__link k-menu__toggle">
+                                    <span class="k-menu__link-text">QUẢN TRỊ HỆ THỐNG</span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./Input-Thong-tin-nguoi-dung.html">
+                                                <span class="k-menu__link-text">Thông tin người dùng</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Thong-tin-nhom.html">
+                                                <span class="k-menu__link-text">Thông tin nhóm</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./Input-Phan-nhom-nguoi-dung.html">
+                                                <span class="k-menu__link-text">Phân nhóm người dùng</span>
+                                            </a>
+                                        </li>
+                                        <li class="k-menu__item " aria-haspopup="true">
+                                            <a class="k-menu__link " href="./InPut-Phan-quyen-nhom-theo-chuc-nang.html">
+                                                <span class="k-menu__link-text">Phân quyền nhóm theo chức năng</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="k-header-toolbar">
+                    </div>
+                </div>
+
+                <!-- end: Header Menu -->
+            </div>
+        </div>
+    </div>
+    <!-- end:: Header -->
+    <div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-grid--stretch">
+        <div class="k-container k-content-wrapper  k-grid k-grid--ver" id="k_content_wrapper">
+
+            <!-- begin:: Content -->
+            <div class="k-content	k-grid__item k-grid__item--fluid k-grid k-grid--hor" id="k_content">
+                <style>
+                    table th {
+                        vertical-align: middle !important;
+                    }
+
+                    .content-ManagerEvent {
+                        border: 1px solid #bcbcbd;
+                        padding-top: 15px;
+                        box-shadow: 0 0 10px #b9b8b8;
+                    }
+
+                    .contentTable-ManagerEvent {
+                        border: 1px solid #bcbcbd;
+                        box-shadow: 0 0 10px #b9b8b8;
+                        padding: 15px;
+                    }
+                </style>
+                <div class="container">
+                    <div class="title_line d-flex" style="margin-bottom: 20px;">
+                        <div>
+                            <span class="title_line_item">
+                                <span>Dữ liệu</span>
+                            </span>
+                            <span class="title_line_item">
+                                <i class="fa  fa-caret-right"></i>
+                            </span>
+                            <span class="title_line_item">
+                                <span>Dữ liệu OS</span>
+                            </span>
+                            <span class="title_line_item">
+                                <i class="fa  fa-caret-right"></i>
+                            </span>
+                            <span class="title_line_item">
+                                <span>Tổng hợp dữ liệu Ngành</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3 col-12">
+                        <h3>
+                            Tổng hợp dữ liệu Ngành
+                        </h3>
+                    </div>
+                    <div class="row " style="padding-right: 0px;">
+                        <form action="SearchManagerEvent" enctype="multipart/form-data" method="post" class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card ">
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                                            <div class="card-body">
+                                                <div class="tab-panel">
+                                                    <div class=" ">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2" for="FinancePlan_Year">Tên ngành :</label>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" id="company" name="TonghopdulieuNganh.Nganh">
+                                                                    <option value="91">BẤT ĐỘNG SẢN----&gt;Quản lý và phát triển bất động sản----&gt;Vận hành bất động sản</option>
+                                                                    <option value="29">CÔNG NGHIỆP----&gt;Các dịch vụ thương mại và chuyên biệt----&gt;Dịch vụ hỗ trợ khác</option>
+                                                                    <option value="27">CÔNG NGHIỆP----&gt;Các dịch vụ thương mại và chuyên biệt----&gt;Dịch vụ hỗ trợ việc làm và nguồn nhân lực</option>
+                                                                    <option value="26">CÔNG NGHIỆP----&gt;Các dịch vụ thương mại và chuyên biệt----&gt;Dịch vụ môi trường</option>
+                                                                    <option value="28">CÔNG NGHIỆP----&gt;Các dịch vụ thương mại và chuyên biệt----&gt;Dịch vụ tư vấn &amp; nghiên cứu</option>
+                                                                    <option value="25">CÔNG NGHIỆP----&gt;Các dịch vụ thương mại và chuyên biệt----&gt;In thương mại</option>
+                                                                    <option value="37">CÔNG NGHIỆP----&gt;Cơ sở hạ tầng giao thông vận tải----&gt;Dịch vụ cảng biển</option>
+                                                                    <option value="36">CÔNG NGHIỆP----&gt;Cơ sở hạ tầng giao thông vận tải----&gt;Dịch vụ sân bay</option>
+                                                                    <option value="22">CÔNG NGHIỆP----&gt;Tư liệu sản xuất----&gt;Công nghiệp đa ngành</option>
+                                                                    <option value="23">CÔNG NGHIỆP----&gt;Tư liệu sản xuất----&gt;Máy công nghiệp</option>
+                                                                    <option value="21">CÔNG NGHIỆP----&gt;Tư liệu sản xuất----&gt;Thiết bị điện</option>
+                                                                    <option value="20">CÔNG NGHIỆP----&gt;Tư liệu sản xuất----&gt;Xây dựng</option>
+                                                                    <option value="31">CÔNG NGHIỆP----&gt;Vận tải----&gt;Hỗ trợ vận tải</option>
+                                                                    <option value="33">CÔNG NGHIỆP----&gt;Vận tải----&gt;Vận tải biển</option>
+                                                                    <option value="32">CÔNG NGHIỆP----&gt;Vận tải----&gt;Vận tải hàng không</option>
+                                                                    <option value="34">CÔNG NGHIỆP----&gt;Vận tải----&gt;Vận tải đường bộ &amp; đường sắt</option>
+                                                                    <option value="79">CÔNG NGHỆ----&gt;Công nghệ thông tin tích hợp----&gt;Công nghệ thông tin tích hợp</option>
+                                                                    <option value="77">CÔNG NGHỆ----&gt;Phần cứng----&gt;Phần cứng</option>
+                                                                    <option value="75">CÔNG NGHỆ----&gt;Phần mềm----&gt;Phần mềm</option>
+                                                                    <option value="86">DỊCH VỤ CÔNG CỘNG----&gt;Dịch vụ công cộng----&gt;Gas</option>
+                                                                    <option value="87">DỊCH VỤ CÔNG CỘNG----&gt;Dịch vụ công cộng----&gt;Nước</option>
+                                                                    <option value="85">DỊCH VỤ CÔNG CỘNG----&gt;Dịch vụ công cộng----&gt;Điện</option>
+                                                                    <option value="82">DỊCH VỤ VIỄN THÔNG----&gt;Dịch vụ viễn thông----&gt;Dịch vụ viễn thông đa ngành</option>
+                                                                    <option value="49">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Bán lẻ----&gt;Bán lẻ</option>
+                                                                    <option value="44">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Hàng tiêu dùng lâu bền và trang phục----&gt;Dệt may &amp; Trang phục, phụ kiện</option>
+                                                                    <option value="45">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Hàng tiêu dùng lâu bền và trang phục----&gt;Khách sạn, nhà hàng &amp; Giải trí</option>
+                                                                    <option value="43">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Hàng tiêu dùng lâu bền và trang phục----&gt;Đồ gia dụng lâu bền</option>
+                                                                    <option value="47">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Truyền thông và xuất bản----&gt;Truyền thông và xuất bản</option>
+                                                                    <option value="41">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Ô tô &amp; Phụ tùng----&gt;Lốp &amp; Cao su</option>
+                                                                    <option value="40">HÀNG TIÊU DÙNG KHÔNG THIẾT YẾU----&gt;Ô tô &amp; Phụ tùng----&gt;Nhà sản xuất ô tô và thiết bị ô tô</option>
+                                                                    <option value="56">HÀNG TIÊU DÙNG THIẾT YẾU----&gt;Sản phẩm cá nhân &amp; hộ gia đình----&gt;Sản phẩm gia dụng không lâu bền</option>
+                                                                    <option value="54">HÀNG TIÊU DÙNG THIẾT YẾU----&gt;Thực phẩm &amp; Đồ uống----&gt;Thuốc lá</option>
+                                                                    <option value="53">HÀNG TIÊU DÙNG THIẾT YẾU----&gt;Thực phẩm &amp; Đồ uống----&gt;Thực phẩm</option>
+                                                                    <option value="52">HÀNG TIÊU DÙNG THIẾT YẾU----&gt;Thực phẩm &amp; Đồ uống----&gt;Đồ uống</option>
+                                                                    <option value="17">NGUYÊN VẬT LIỆU----&gt;Giấy và các sản phẩm từ gỗ----&gt;Giấy</option>
+                                                                    <option value="16">NGUYÊN VẬT LIỆU----&gt;Giấy và các sản phẩm từ gỗ----&gt;Gỗ và các sản phẩm từ gỗ</option>
+                                                                    <option value="13">NGUYÊN VẬT LIỆU----&gt;Kim loại &amp; Khai khoáng----&gt;Kim loại không chứa sắt</option>
+                                                                    <option value="14">NGUYÊN VẬT LIỆU----&gt;Kim loại &amp; Khai khoáng----&gt;Thép</option>
+                                                                    <option value="7">NGUYÊN VẬT LIỆU----&gt;Nguyên vật liệu----&gt;Hoá chất</option>
+                                                                    <option value="8">NGUYÊN VẬT LIỆU----&gt;Nguyên vật liệu----&gt;Phân bón</option>
+                                                                    <option value="11">NGUYÊN VẬT LIỆU----&gt;Vật liệu xây dựng----&gt;Bao bì và đóng gói</option>
+                                                                    <option value="10">NGUYÊN VẬT LIỆU----&gt;Vật liệu xây dựng----&gt;Vật liệu xây dựng</option>
+                                                                    <option value="3">NĂNG LƯỢNG----&gt;Năng lượng----&gt;Dầu khí</option>
+                                                                    <option value="4">NĂNG LƯỢNG----&gt;Năng lượng----&gt;Than đá và nhiên liệu khác</option>
+                                                                    <option value="72">TÀI CHÍNH----&gt;Bảo hiểm----&gt;Bảo hiểm</option>
+                                                                    <option value="66">TÀI CHÍNH----&gt;Công ty chứng khoán----&gt;Công ty chứng khoán</option>
+                                                                    <option value="64">TÀI CHÍNH----&gt;Ngân hàng----&gt;Ngân hàng</option>
+                                                                    <option value="68">TÀI CHÍNH----&gt;Quỹ----&gt;Quỹ</option>
+                                                                    <option value="70">TÀI CHÍNH----&gt;Tài chính chuyên biệt khác----&gt;Tài chính chuyên biệt khác</option>
+                                                                    <option value="61">Y TẾ----&gt;Dược phẩm &amp; Công nghệ sinh học----&gt;Dược phẩm</option>
+                                                                    <option value="59">Y TẾ----&gt;Dịch vụ &amp; thiết bị y tế----&gt;Thiết bị &amp; Vật tư y tế</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2" for="FinancePlan_Year">Từ Kỳ:</label>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" id="company" name="TonghopdulieuNganh.Nganh">
+                                                                    <option value="Quy1">Qúy 1 </option>
+                                                                    <option value="Quy2">Qúy 2 </option>
+                                                                    <option value="Quy3">Qúy 3 </option>
+                                                                    <option value="Quy4">Qúy 4 </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2" for="FinancePlan_Year">Năm:</label>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" id="company" name="TonghopdulieuNganh.Nganh">
+                                                                    <option>2022</option>
+                                                                    <option>2021</option>
+                                                                    <option>2020</option>
+                                                                    <option>2019</option>
+                                                                    <option>2018</option>
+                                                                    <option>2017</option>
+                                                                    <option>2016</option>
+                                                                    <option>2015</option>
+                                                                    <option>2014</option>
+                                                                    <option>2013</option>
+                                                                    <option>2012</option>
+                                                                    <option>2011</option>
+                                                                    <option>2010</option>
+                                                                    <option>2009</option>
+                                                                    <option>2008</option>
+                                                                    <option>2007</option>
+                                                                    <option>2006</option>
+                                                                    <option>2005</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2" for="FinancePlan_Year">Đến Kỳ:</label>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" id="company" name="TonghopdulieuNganh.Nganh">
+                                                                    <option value="Quy1">Qúy 1 </option>
+                                                                    <option value="Quy2">Qúy 2 </option>
+                                                                    <option value="Quy3">Qúy 3 </option>
+                                                                    <option value="Quy4">Qúy 4 </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2" for="FinancePlan_Year">Năm:</label>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" id="company" name="TonghopdulieuNganh.Nganh">
+                                                                    <option>2022</option>
+                                                                    <option>2021</option>
+                                                                    <option>2020</option>
+                                                                    <option>2019</option>
+                                                                    <option>2018</option>
+                                                                    <option>2017</option>
+                                                                    <option>2016</option>
+                                                                    <option>2015</option>
+                                                                    <option>2014</option>
+                                                                    <option>2013</option>
+                                                                    <option>2012</option>
+                                                                    <option>2011</option>
+                                                                    <option>2010</option>
+                                                                    <option>2009</option>
+                                                                    <option>2008</option>
+                                                                    <option>2007</option>
+                                                                    <option>2006</option>
+                                                                    <option>2005</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row d-flex justify-content-center mb-4 mr-5">
+                                                        <button type="submit" id="btnImport" class="btn btn-primary mt-3 col-1  ml-3">Tổng hợp</button>
+                                                        <button type="submit" id="btnEdit" class="btn btn-primary mt-3 col-1 ml-3">Bỏ qua</button>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+            <style>
+                .highlight {
+                    background: #dadada !important;
+                }
+
+                .table-striped tbody tr:nth-of-type(odd) {
+                    background: white;
+                }
+
+                .table-striped tbody tr:nth-of-type(even) {
+                    background: white;
+                }
+
+                .inputBoxSearch {
+                    font-size: 11px;
+                    border-right: silver 1px solid;
+                    border-top: silver 1px solid;
+                    border-left: silver 1px solid;
+                    border-bottom: silver 1px solid;
+                    font-family: Tahoma, verdana, arial, helvetica;
+                    height: 20px;
+                    background-color: whitesmoke;
+                    width: 100%;
+                    margin: 5px;
+                }
+            </style>
+        </div>
+    </div>
+    </div>
+
+    <!-- begin:: Footer -->
+    <!-- end:: Footer -->
+    </div>
+    </div>
+    </div>
+
+    <!-- begin::Scrolltop -->
+    <div id="k_scrolltop" class="k-scrolltop">
+        <i class="la la-arrow-up"></i>
+    </div>
+
+    <!-- end::Scrolltop -->
+    <!-- begin::Global Config -->
+    <script>
+        var KAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#4d5cf2",
+                    "metal": "#c4c5d6",
+                    "light": "#ffffff",
+                    "accent": "#00c5dc",
+                    "primary": "#5867dd",
+                    "success": "#34bfa3",
+                    "info": "#36a3f7",
+                    "warning": "#ffb822",
+                    "danger": "#fd3995",
+                    "focus": "#9816f4"
+                },
+                "base": {
+                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                }
+            }
+        };
+    </script>
+
+    <!-- end::Global Config -->
+    <!--begin:: Global Mandatory Vendors -->
+
+    <script src="./wwwroot/assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/general/wnumb/wNumb.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/custom/datatables/datatables.bundle.js"></script>
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin:: Global Optional Vendors -->
+    <!--end:: Global Optional Vendors -->
+    <!--begin::Global Theme Bundle -->
+
+    <script src="./wwwroot/lib/moment/min/moment.min.js"></script>
+    <script src="./wwwroot/assets/demo/demo3/base/scripts.bundle.js" type="text/javascript"></script>
+
+    <!--end::Global Theme Bundle -->
+    <!--begin::Page Vendors -->
+    <!--end::Page Vendors -->
+    <!--begin::Page Scripts -->
+    <!--end::Page Scripts -->
+    <!--begin::Global App Bundle -->
+    <script src="./wwwroot/js/site.js"></script>
+    <script src="./wwwroot/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+
+    <script src="./wwwroot/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+    <script src="./wwwroot/assets/vendors/custom/datatables/jquery-datatables-checkboxes-1.2.12/js/dataTables.checkboxes.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.0.2/js/dataTables.dateTime.min.js" type="text/javascript"></script>
+    <script src="./wwwroot//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!--end::Global App Bundle -->
+    <!-- begin::Page Loader -->
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "20000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    </script>
+
+    <!-- end::Page Loader -->
+    <!-- end::Body -->
+
+</body>
+
+</html>

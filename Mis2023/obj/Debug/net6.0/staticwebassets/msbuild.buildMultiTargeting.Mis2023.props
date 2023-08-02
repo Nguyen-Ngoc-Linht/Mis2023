@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Mis2023.props" />
+</Project>

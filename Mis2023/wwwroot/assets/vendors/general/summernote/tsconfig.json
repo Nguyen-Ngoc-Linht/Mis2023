@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./built",
+    "allowJs": true,
+    "sourceMap": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./src/**/*.js",
+    "./src/**/*.ts", "../../../../../Models/DataTemplateViewModel/InputCompanyViewModel.cs", "../../../../../../CoreLib/Entities/CompanyEntities/HistoryEventCompany.cs", "../../../../../../CoreLib/Entities/CompanyEntities/CAuditOrg.cs", "../../../../../../CoreLib/Entities/HistoryEventCompany.cs", "../../../../../Models/DataTemplateViewModel/HistoryCreationViewModel.cs", "../../../../../Views/Shared/_FormMessage.cshtml", "../../../../../../DataServiceLib/Implementations/CTemplateDataProvider.cs", "../../../../../Models/FreeTextDataViewModel/InfoSheetCreationViewModel.cs", "../../../../../../DataServiceLib/Interfaces/IFptsIndexDataProvider.cs", "../../../../../../CoreLib/Entities/FptsIndex/MapEvent.cs", "../../../../../../CoreLib/Entities/FptsIndex/OfferType.cs", "../../../../../Utility/FptsIndexModelExtension.cs", "../../../../../Views/Shared/_FormAllMessage.cshtml", "../../../../../../CoreLib/Entities/FptsIndex/ManageEvent.cs", "../../../../../Models/FptsIndexDataViewModel/MapNYBSViewModel.cs", "../../../../../../CoreLib/Entities/FptsIndex/GDKHQ.cs", "../../../../../../DataServiceLib/Interfaces/TemplateData/IHistoryEventContext.cs", "../../../../../../DataServiceLib/Interfaces/TemplateData/IOrgModelContext.cs", "../../../../../../DataServiceLib/Interfaces/TemplateData/ITemplateDataContext.cs", "../../../../../Views/Shared/_LoadingProcess.cshtml", "../../../../../../DataServiceLib/Utility/SqlErrorCode.cs", "../../../../../../EzAnalysis/wwwroot/js/highcharts/highstock.js", "../../../../../../EzAnalysis/wwwroot/js/highcharts/exporting.js", "../../../../../../EzAnalysis/wwwroot/js/highcharts/export-data.js"
+  ]
+}

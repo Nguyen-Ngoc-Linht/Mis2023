@@ -1,0 +1,134 @@
+﻿a:hover {
+    color: #23527c;
+}
+
+a {
+    color: #3498db;
+}
+
+.fa-delete {
+    font-size: 2rem;
+}
+
+.custom-file-input:focus,
+custom-file:focus {
+    border-color: #3498db!important;
+    outline-color: #3498db;
+}
+
+.field-validation-error {
+    color: #db4534;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #db4534;
+    border-color: #db4534;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #db4534;
+    border-color: #db4534;
+}
+
+.btn-primary {
+    background-color: #007db8;
+    border-color: transparent;
+}
+
+.dataTables_wrapper {
+    width: 100%;
+}
+
+.dataTables tbody tr {
+    height: 15px!important;
+    /* or whatever height you need to make them all consistent */
+}
+
+tfoot {
+    display: table-header-group;
+}
+
+.lds-ellipsis {
+    display: none;
+    margin: auto;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 27px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: black;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(19px, 0);
+    }
+}
+
+.group-toggle-password {
+    position: relative;
+}
+
+.toggle-password {
+    right: 1rem;
+    margin-top: -2.7rem;
+    position: absolute;
+    z-index: 50;
+}
+
+
+/* HienDV custom easyauto complete  */
+
+.eac-item>b {
+    color: #db4534;
+}
